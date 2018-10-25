@@ -13,3 +13,8 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/settings', 'settings\UserInfoController@index');
+Route::post('/settings', 'settings\UserInfoController@form');
+Route::get('/settings/passchange', 'settings\PassChangeController@index');
+Route::post('/settings/passchange', 'settings\PassChangeController@form');
