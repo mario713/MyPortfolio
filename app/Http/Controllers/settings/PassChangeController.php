@@ -14,6 +14,11 @@ class PassChangeController extends Controller
         $this->middleware('auth');
     }
 
+    public function redirectTo($request)
+    {
+        return route('login');
+    }
+
     private function menu()
     {
         return  [
