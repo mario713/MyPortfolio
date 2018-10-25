@@ -95,7 +95,7 @@
             @if($myself == false)
             <div class="submitForm" style="margin-top: 25px;">
                 <form action="{{ url('/messages/new/'.$user->username) }}">
-                    <input type="button" value="Send Message" class="blueBtn">
+                    <input type="submit" value="Send Message" class="blueBtn">
                 </form>
             </div>
             @endif
