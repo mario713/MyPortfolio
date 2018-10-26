@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\settings;
+namespace App\Http\Controllers\Settings;
 
 use App\Http\Requests\PassChangeFormValidation;
 use App\Http\Controllers\Controller;
@@ -12,11 +12,6 @@ class PassChangeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
-
-    public function redirectTo($request)
-    {
-        return route('login');
     }
 
     private function menu()

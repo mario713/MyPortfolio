@@ -16,9 +16,17 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/settings', 'settings\UserInfoController@index');
-Route::post('/settings', 'settings\UserInfoController@form');
-Route::get('/settings/passchange', 'settings\PassChangeController@index');
-Route::post('/settings/passchange', 'settings\PassChangeController@form');
+Route::get('/settings', 'Settings\UserInfoController@index');
+Route::post('/settings', 'Settings\UserInfoController@form');
+Route::get('/settings/passchange', 'Settings\PassChangeController@index');
+Route::post('/settings/passchange', 'Settings\PassChangeController@form');
 
 Route::get('/profile/{id?}', 'ProfileController@index');
+
+Route::get('/messages/new/{username?}', 'Messages\NewController@index');
+Route::post('/messages/new/{username?}', 'Messages\NewController@form');
+Route::get('/messages/inbox', 'Messages\InboxController@index');
+Route::get('/messages/inbox/delete/{id}', 'Messages\InboxController@delete');
+Route::get('/messages/outbox', 'Messages\OutboxController@index');
+Route::get('/messages/outbox/delete/{id}', 'Messages\OutboxController@delete');
+Route::get('/messages/trash', 'Messages\TrashController@index');
