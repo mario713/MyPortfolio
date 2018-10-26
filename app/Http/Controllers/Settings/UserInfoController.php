@@ -25,7 +25,7 @@ class UserInfoController extends Controller
 
     public function index()
     {
-        return view('settings/userinfo', ['left_menu' => $this->menu()]);
+        return view('settings.userinfo', ['left_menu' => $this->menu()]);
     }
 
     public function form(UserInfoFormValidation $request)
@@ -51,6 +51,6 @@ class UserInfoController extends Controller
         }
         $user->save();
 
-        return view('/settings/userinfo', ['left_menu' => $this->menu()])->with('success', 'Your info has been updated.');
+        return view('settings.userinfo', ['left_menu' => $this->menu()])->with('success', 'Your info has been updated.');
     }
 }

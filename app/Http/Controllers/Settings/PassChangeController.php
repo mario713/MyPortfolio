@@ -38,16 +38,16 @@ class PassChangeController extends Controller
                 $user->password = bcrypt(Input::get('new_pass'));
                 $user->save();
 
-                return view('/settings/passchange', ['left_menu' => $this::menu()])->with('success', 'Your password has been changed.');
+                return view('settings.passchange', ['left_menu' => $this::menu()])->with('success', 'Your password has been changed.');
             }
             else
             {
-                return view('/settings/passchange', ['left_menu' => $this::menu()])->withErrors("Passwords doesn't match! Confirm new password.");
+                return view('settings.passchange', ['left_menu' => $this::menu()])->withErrors("Passwords doesn't match! Confirm new password.");
             }
         }
         else
         {
-            return view('/settings/passchange', ['left_menu' => $this::menu()])->withErrors('Password is incorrect!');
+            return view('settings.passchange', ['left_menu' => $this::menu()])->withErrors('Password is incorrect!');
         }
     }
 }
