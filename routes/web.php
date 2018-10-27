@@ -30,3 +30,5 @@ Route::get('/messages/inbox/delete/{id}', 'Messages\InboxController@delete');
 Route::get('/messages/outbox', 'Messages\OutboxController@index');
 Route::get('/messages/outbox/delete/{id}', 'Messages\OutboxController@delete');
 Route::get('/messages/trash', 'Messages\TrashController@index');
+
+Route::get('/admin', 'Admin\HomeController@index');
