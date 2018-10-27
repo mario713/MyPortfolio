@@ -145,7 +145,15 @@
         <div class="leftNav">
             <ul id="menu">
                 @foreach($left_menu as $menu_item)
-                    <li class="{{$menu_item['class']}}"><a href="{{$menu_item['url']}}" title=""@if($menu_item['active'] == true) class="active"@endif><span>{{$menu_item['name']}}</span></a></li>
+                    <li class="{{$menu_item['class']}}"><a href="{{$menu_item['url']}}" title=""@if($menu_item['active'] == true) class="active"@endif @if(isset($menu_item['submenu']))class="exp"@endif><span>{{$menu_item['name']}}</span></a>
+                    @if(isset($menu_item['submenu']))
+                        <ul class="sub">
+                            @foreach($menu_item['submenu'] as $submenu_item)
+                                <li><a href="{{ $submenu_item['url'] }}" title="">{{ $submenu_item['name'] }}</a></li>
+                            @endforeach
+                        </ul>
+                    @endif
+                    </li>
                 @endforeach
             </ul>
         </div>

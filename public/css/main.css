@@ -649,6 +649,7 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
 .leftNav ul li.contacts a span { background-image: url(../images/icons/dark/users.png); }
 .leftNav ul li.contact a span { background-image: url(../images/icons/dark/notebook.png); }
 .leftNav ul li.portfolio a span { background-image: url(../images/icons/dark/planeSuitcase.png); }
+.leftNav ul li.logs a span { background-image: url(../images/icons/dark/books.png); }
 .leftNav ul li.resources a span { background-image: url(../images/icons/dark/files.png); }
 .leftNav ul li.tools a span { background-image: url(../images/icons/dark/bigBrush.png); }
 .leftNav ul li.tutorials a span { background-image: url(../images/icons/dark/docs.png); }
