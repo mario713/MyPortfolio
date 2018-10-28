@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Log;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
-    private function menu()
+    public static function menu()
     {
         return  [
             ['name' => 'Main Settings', 'class' => 'main', 'url' => url('/admin'), 'active' => true],
@@ -18,8 +20,10 @@ class HomeController extends Controller
             ['name' => 'Portfolio', 'class' => 'portfolio', 'url' => url('/admin'), 'active' => false],
             ['name' => 'Contact', 'class' => 'contact', 'url' => url('/admin'), 'active' => false],
             ['name' => 'Logs', 'class' => 'logs', 'url' => '#', 'active' => false, 'submenu' => [
-                ['name' => 'User Logs', 'url' => url('/admin/logs/user')],
-                ['name' => 'Login Logs', 'url' => url('/admin/logs/login')],
+                ['name' => 'Login', 'url' => url('/admin/logs/login')],
+                ['name' => 'Register', 'url' => url('/admin/logs/register')],
+                ['name' => 'User', 'url' => url('/admin/logs/user')],
+                ['name' => 'Security', 'url' => url('/admin/logs/security')],
                 ]],
             ['name' => 'Users', 'class' => 'user', 'url' => url('/admin'), 'active' => false],
         ];
@@ -37,6 +41,15 @@ class HomeController extends Controller
 
     public function index()
     {
+        /*
+        $log = new Log();
+        $log->type = 'test';
+        $log->user_id = null;
+        $log->log = 'This is test log :)';
+        $log->client_ip = \Request::ip();
+        $log->date = Carbon::now();
+        $log->save();
+        */
 
         return view('admin.home', ['left_menu' => $this->menu()]);
     }

@@ -33,4 +33,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Message');
     }
+
+    public function Logs()
+    {
+        return $this->hasMany('App\Log');
+    }
 }

@@ -32,3 +32,5 @@ Route::get('/messages/outbox/delete/{id}', 'Messages\OutboxController@delete');
 Route::get('/messages/trash', 'Messages\TrashController@index');
 
 Route::get('/admin', 'Admin\HomeController@index');
+
+Route::get('/admin/logs/{type}', 'Admin\LogsController@index');
