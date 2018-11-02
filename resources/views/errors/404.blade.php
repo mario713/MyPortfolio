@@ -9,7 +9,7 @@
         <h1>404</h1>
         <span class="bubbles"></span>
         <p>Oops! Sorry, an error has occured. Requested page not found!</p>
-        <div class="backToDash"><a href="index.html" title="" class="seaBtn button">Back to Dashboard</a></div>
+        <div class="backToDash"><a href="{{ url('/') }}" title="" class="seaBtn button">Back to Dashboard</a></div>
     </div>
 </div>
 

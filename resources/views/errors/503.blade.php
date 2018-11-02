@@ -9,7 +9,7 @@
         <h1>503</h1>
         <span class="bubbles"></span>
         <p>Oops! Sorry, an error has occured. Access forbidden!</p>
-        <div class="backToDash"><a href="index.html" title="" class="seaBtn button">Back to Dashboard</a></div>
+        <div class="backToDash"><a href="{{ url('/') }}" title="" class="seaBtn button">Back to Dashboard</a></div>
     </div>
 </div>
 
