@@ -33,4 +33,13 @@ Route::get('/messages/trash', 'Messages\TrashController@index');
 
 Route::get('/admin', 'Admin\HomeController@index');
 
+Route::get('/admin/news/manage', 'Admin\NewsController@index');
+Route::get('/admin/news/add', 'Admin\NewsController@add');
+Route::get('/admin/news/categories', 'Admin\NewsController@categories');
+Route::post('/admin/news/categories/{action}/{id?}', 'Admin\NewsController@categories_form');
+Route::get('/admin/news/categories/{action}/{id?}', 'Admin\NewsController@categories');
+
+//Route::get('/admin/news/categories/delete/{id}', 'Admin\NewsController@categories_delete');
+//Route::get('/admin/news/categories/edit/{id}', 'Admin\NewsController@categories_edit');
+
 Route::get('/admin/logs/{type}', 'Admin\LogsController@index');

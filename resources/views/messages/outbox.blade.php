@@ -33,7 +33,7 @@
                 <td class="center"><a href="#">{{ $message->title }}</a></td>
                 <td class="center">{{ $message->date }}</td>
                 <td class="center">
-                    <a href="{{url('/messages/outbox/delete/'.$message->id)}}"><img src="{{ url('images/icons/color/cross.png') }}" class="topDir" value="top direction" original-title="Usuń"/></a>
+                    <a href="{{url('/messages/outbox/delete/'.$message->id)}}"><img src="{{ url('images/icons/color/cross.png') }}" class="topDir" value="top direction" original-title="Delete"/></a>
                 </td>
             </tr>
             @endforeach

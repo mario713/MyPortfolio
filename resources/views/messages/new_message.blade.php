@@ -27,10 +27,10 @@
         <fieldset>
             <div class="widget first">
                 <div class="head"><h5 class="iPencil">Message</h5></div>
-                <div class="rowElem"><label><center>Title:</center></label><div style="width: 80%;" class="formRight"><input type="text" maxlength="64" placeholder="Wpisz tytuł wiadomości..." name="title"/></div></div>
-                <div class="rowElem"><label><center>Recipient:</center></label><div style="width: 80%;" class="formRight"><input value="@if(isset($username)){{ $username }}@endif" type="text" maxlength="16" placeholder="Podaj odbiorcę wiadomości..." name="recipient"/></div></div>
+                <div class="rowElem"><label><center>Title:</center></label><div style="width: 80%;" class="formRight"><input type="text" maxlength="64" placeholder="What's the title of your message?" name="title"/></div></div>
+                <div class="rowElem"><label><center>Recipient:</center></label><div style="width: 80%;" class="formRight"><input value="@if(isset($username)){{ $username }}@endif" type="text" maxlength="16" placeholder="To whom you're gonna send it?" name="recipient"/></div></div>
                 <div class="rowElem"><label><center>Text:</center></label><div style="width: 80%;" class="formRight"><textarea rows="8" cols="" class="auto" name="content"></textarea></div></div>
-                <div class="submitForm"><input type="submit" value="Wyślij" class="greyishBtn" /></div>
+                <div class="submitForm"><input type="submit" value="Send Message" class="greyishBtn" /></div>
             </div>
         </fieldset>
     </form>

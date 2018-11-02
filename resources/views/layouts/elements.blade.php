@@ -9,7 +9,10 @@
     <link href="{{url('/css/main.css')}}" rel="stylesheet" type="text/css" />
     <link href='http://fonts.googleapis.com/css?family=Cuprum' rel='stylesheet' type='text/css' />
 
+
+
     <link rel="shortcut icon" href="{{url('favicon.ico')}}" type="image/x-icon">
+
 
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
@@ -63,7 +66,7 @@
 
     <script type="text/javascript" src="{{url('/js/custom.js')}}"></script>
 
-    <script type="text/javascript" src="{{url('/js/charts/chart.js')}}"></script>
+    <!-- <script type="text/javascript" src="{{url('/js/charts/chart.js')}}"></script> -->
 
 </head>
 @endsection

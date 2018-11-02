@@ -34,8 +34,8 @@
                 <td class="center">{{ $message->date }}</td>
                 <td class="center">
 
-                    <a href="{{ url('/messages/inbox/delete/'.$message->id) }}"><img src="{{ url('images/icons/color/cross.png') }}" class="topDir" value="top direction" original-title="Usuń Wiadomość"/></a>
-                    <a href="{{ url('/messages/new/'.$message->from) }}"><img src="{{ url('images/icons/color/arrow-curve-180.png') }}" class="topDir" value="top direction" original-title="Odpowiedz Na Wiadomość"/></a>
+                    <a href="{{ url('/messages/inbox/delete/'.$message->id) }}"><img src="{{ url('images/icons/color/cross.png') }}" class="topDir" value="top direction" original-title="Delete"/></a>
+                    <a href="{{ url('/messages/new/'.$message->from) }}"><img src="{{ url('images/icons/color/arrow-curve-180.png') }}" class="topDir" value="top direction" original-title="Reply"/></a>
                 </td>
             </tr>
             @endforeach

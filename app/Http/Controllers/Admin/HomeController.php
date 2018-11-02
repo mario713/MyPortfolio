@@ -12,8 +12,12 @@ class HomeController extends Controller
     public static function menu()
     {
         return  [
-            ['name' => 'Main Settings', 'class' => 'main', 'url' => url('/admin'), 'active' => true],
-            ['name' => 'News', 'class' => 'news', 'url' => url('/admin'), 'active' => false],
+            ['name' => 'Main Settings', 'class' => 'main', 'url' => url('/admin'), 'active' => false],
+            ['name' => 'News', 'class' => 'news', 'url' => url('#'), 'active' => false, 'submenu' => [
+                ['name' => 'Add News', 'url' => url('/admin/news/add')],
+                ['name' => 'Manage News', 'url' => url('/admin/news/manage')],
+                ['name' => 'Categories', 'url' => url('/admin/news/categories')],
+            ]],
             ['name' => 'Tutorials', 'class' => 'tutorials', 'url' => url('/admin'), 'active' => false],
             ['name' => 'Tools', 'class' => 'tools', 'url' => url('/admin'), 'active' => false],
             ['name' => 'Resources', 'class' => 'resources', 'url' => url('/admin'), 'active' => false],
