@@ -39,7 +39,4 @@ Route::get('/admin/news/categories', 'Admin\NewsController@categories');
 Route::post('/admin/news/categories/{action}/{id?}', 'Admin\NewsController@categories_form');
 Route::get('/admin/news/categories/{action}/{id?}', 'Admin\NewsController@categories');
 
-//Route::get('/admin/news/categories/delete/{id}', 'Admin\NewsController@categories_delete');
-//Route::get('/admin/news/categories/edit/{id}', 'Admin\NewsController@categories_edit');
-
 Route::get('/admin/logs/{type}', 'Admin\LogsController@index');
