@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Admin\News;
 
 use App\Category;
 use App\Http\Requests\NewsCategoryFormValidation;
@@ -11,21 +11,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
-class NewsController extends Controller
+class CategoriesController extends Controller
 {
-    public function index()
+    public function __construct()
     {
-
-        return view('admin.news.manage', ['left_menu' => HomeController::menu()]);
+        $this->middleware(['auth', 'role:admin']);
     }
 
-    public function news_add()
-    {
-
-        return view('admin.news.add', ['left_menu' => HomeController::menu()]);
-    }
-
-    public function categories($action = null, $id = null)
+    public function index($action = null, $id = null)
     {
         $cat_edit = null;
 
@@ -115,12 +108,13 @@ class NewsController extends Controller
                 break;
         }
         $cat_order = DB::table('categories')->select('order')->orderBy('order', 'DESC')->first();
+        if(!isset($cat_order)){$cat_order = new Category; $cat_order->order = 0;}
         $categories = DB::table('categories')->orderBy('order', 'ASC')->get();
 
         return view('admin.news.categories', ['left_menu' => HomeController::menu(), 'categories' => $categories, 'cat_order' => $cat_order->order+1, 'cat_edit' => $cat_edit]);
     }
 
-    public function categories_form($action = null, $id = null, NewsCategoryFormValidation $request)
+    public function form($action = null, $id = null, NewsCategoryFormValidation $request)
     {
         switch($action)
         {

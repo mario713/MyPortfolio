@@ -14,12 +14,12 @@
     @endif
 
     <div class="widget first" style="border: 1px solid #e7e7e7;">
-        <form action="{{url('/admin/news/add')}}" method="post" class="mainForm" id="news_form">
+        <form action="{{url('/admin/news/edit/')}}" method="post" class="mainForm" id="news_form">
             {{ csrf_field() }}
             <div class="rowElem noborder">
                 <label>Title:</label>
                 <div class="formRight">
-                    <input id="test" type="text" name="news_title"/>
+                    <input id="test" type="text" name="news_title" @if(isset($edit_news['title']))value="{{$edit_news['title']}}"@endif/>
                 </div>
 
 
@@ -30,7 +30,7 @@
                 <div class="formRight">
                     <select data-placeholder="Choose news category..." name="cat_id" class="select-liquid" tabindex="2" style="min-width: 150px;">
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{ $category->name }}</option>
+                            <option value="{{$category->id}}"@if($category->id == $edit_news['id'])selected="selected"@endif>{{ $category->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -40,15 +40,15 @@
 
             <div class="rowElem">
                 <div class="submitForm">
-                    <input type="button" value="Preview" class="basicBtn" onClick="news_form.action = '{{url('/admin/news/preview')}}'; news_content.value = editor.value; news_form.submit();"/>
-                    <input type="submit" value="Add News" class="greenBtn" onClick="news_form.action = '{{url('/admin/news/add')}}'; news_content.value = editor.value; news_form.submit();"/>
+                    <input type="button" value="Preview" class="basicBtn" onClick="news_form.action = '{{url('/admin/news/edit/preview/'.$edit_news['id'])}}'; news_content.value = editor.value; news_form.submit();"/>
+                    <input type="submit" value="Save News" class="greenBtn" onClick="news_form.action = '{{url('/admin/news/edit/'.$edit_news['id'])}}'; news_content.value = editor.value; news_form.submit();"/>
                 </div>
             </div>
     </div>
     <!-- WYSIWYG editor -->
 
     <div class="widget">
-        <textarea id="editor" rows="10" cols="16" style="float: left;">Write your news here...</textarea>
+        <textarea id="editor" rows="10" cols="16" style="float: left;">@if(isset($edit_news['content'])){{$edit_news['content']}}@else Write your news here... @endif</textarea>
     </div>
     </form>
 @endsection

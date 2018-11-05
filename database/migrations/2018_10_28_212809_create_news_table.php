@@ -15,10 +15,16 @@ class CreateNewsTable extends Migration
     {
         Schema::create('news', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('cat_id')->unsigned();
             $table->string('title');
             $table->text('content');
-            $table->integer('user_id');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
+        });
+
+        Schema::table('news', function($table)
+        {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -27,6 +33,7 @@ class CreateNewsTable extends Migration
      *
      * @return void
      */
+
     public function down()
     {
         Schema::dropIfExists('news');
