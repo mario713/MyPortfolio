@@ -654,7 +654,8 @@ box-shadow: 0 1px 0 rgba(255, 255, 255, 0.2) inset;
 .leftNav ul li.tools a span { background-image: url(../images/icons/dark/bigBrush.png); }
 .leftNav ul li.tutorials a span { background-image: url(../images/icons/dark/docs.png); }
 .leftNav ul li.news a span { background-image: url(../images/icons/dark/notebook.png); }
-.leftNav ul li.main a span { background-image: url(../images/icons/dark/home2.png); }
+.leftNav ul li.home a span { background-image: url(../images/icons/dark/home2.png); }
+.leftNav ul li.main a span { background-image: url(../images/icons/dark/cog3.png); }
 
 .leftNav ul li a span { background-position: 10px; background-repeat: no-repeat; }
 

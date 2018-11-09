@@ -13,6 +13,7 @@ class HomeController extends Controller
     {
         return  [
             ['name' => 'Main Settings', 'class' => 'main', 'url' => url('/admin'), 'active' => false],
+            ['name' => 'Home Page', 'class' => 'home', 'url' => url('/admin/homepage'), 'active' => false],
             ['name' => 'News', 'class' => 'news', 'url' => url('#'), 'active' => false, 'submenu' => [
                 ['name' => 'Add News', 'url' => url('/admin/news/add')],
                 ['name' => 'Manage News', 'url' => url('/admin/news/manage')],

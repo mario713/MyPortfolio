@@ -36,6 +36,8 @@ Route::get('/messages/trash', 'Messages\TrashController@index');
 //==========[Admin Panel]==========\\
 Route::get('/admin', 'Admin\HomeController@index');
 
+Route::get('/admin/homepage', 'Admin\HomePageController@index');
+
 Route::get('/admin/news/add', 'Admin\News\NewsController@index');
 Route::post('/admin/news/add', 'Admin\News\NewsController@add_form');
 
