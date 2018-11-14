@@ -35,7 +35,6 @@
     <script type="text/javascript" src="{{url('/js/plugins/forms/tagsinput.min.js')}}"></script>
     <script type="text/javascript" src="{{url('/js/plugins/forms/cleditor.js')}}"></script>
 
-
     <script type="text/javascript" src="{{url('/js/globalize/globalize.js')}}"></script>
     <script type="text/javascript" src="{{url('/js/globalize/globalize.culture.de-DE.js')}}"></script>
     <script type="text/javascript" src="{{url('/js/globalize/globalize.culture.ja-JP.js')}}"></script>
@@ -68,7 +67,20 @@
 
     <!-- <script type="text/javascript" src="{{url('/js/charts/chart.js')}}"></script> -->
 
+
+
 </head>
+@endsection
+
+@section('editor_init')
+<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+<script>tinymce.init({ selector:'textarea' });</script>
+@endsection
+
+@section('editor')
+<div class="panel-body">
+    <textarea>Write content here!</textarea>
+</div>
 @endsection
 
 @section('top_navbar')

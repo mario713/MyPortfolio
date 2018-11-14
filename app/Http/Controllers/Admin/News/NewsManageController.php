@@ -19,6 +19,7 @@ class NewsManageController extends Controller
 
     public function index()
     {
+        $content = null;
         $categories = Category::orderBy('order', 'ASC')->get();
         foreach($categories as $cat)
         {

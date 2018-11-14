@@ -15,6 +15,7 @@ class CreateHomepagesTable extends Migration
     {
         Schema::create('homepages', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title', 24);
             $table->text('description');
             $table->integer('edited_by');
             $table->timestamps();

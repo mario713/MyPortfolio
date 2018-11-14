@@ -13,9 +13,9 @@
         </div>
     @endif
 
+    @if(isset($content))
     <!-- Accordion -->
     <div class="widget acc">
-        @if(isset($content))
             @foreach($content as $item)
                 <div class="head"><h5>{{$item['cat_name']}}</h5></div>
                 <div class="menu_body">
@@ -47,6 +47,10 @@
                 @endif
                 </div>
             @endforeach
-        @endif
     </div>
+    @else
+    <div class="widget" style="border: 1px solid lightgrey;">
+        <center>News table is empty.</center>
+    </div>
+    @endif
 @endsection

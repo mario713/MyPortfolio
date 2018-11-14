@@ -28,18 +28,17 @@ class HomePageController extends Controller
             if($input['preview'] == 0)
             {
                 if(!isset($homepage)){$homepage = new Homepage();}
+                $homepage->title = $input['title'];
                 $homepage->description = $input['content'];
                 $homepage->edited_by = Auth::User()->id;
                 $homepage->save();
             }
             else
             {
-                $preview = $input['content'];
+                $preview['title'] = $input['title'];
+                $preview['content'] = $input['content'];
             }
-
         }
-
-        //$homepage_desc = DB::table('homepage')->select('description')->first();
 
         return view('admin.homepage', ['left_menu' => HomeController::menu(), 'homepage' => $homepage, 'preview' => $preview]);
     }
