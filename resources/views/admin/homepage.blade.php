@@ -25,15 +25,14 @@
 
     <form action="{{url('/admin/homepage')}}" method="post" class="mainForm" id="form">
     {{ csrf_field() }}
-
         <div class="widget">
             <div class="rowElem"><label>Title:</label><div class="formRight">
                     @if(isset($homepage) && !isset($preview))
-                        <input type="text" name="title"@if(isset($homepage))value="{{$homepage->title}}"@endif>
+                        <input type="text" name="title" @if(isset($homepage)) value="{{$homepage->title}}" @endif />
                     @elseif(isset($preview))
                         <input type="text" name="title" value="{{$preview['title']}}">
                     @else(!isset($homepage) && !isset($preview))
-                        Your title
+                        <input type="text" name="title" value="">
                     @endif
 
                 </div></div>

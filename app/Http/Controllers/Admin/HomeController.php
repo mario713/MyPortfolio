@@ -6,13 +6,16 @@ use App\Log;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Menu;
 
 class HomeController extends Controller
 {
     public static function menu()
     {
         return  [
-            ['name' => 'Main Settings', 'class' => 'main', 'url' => url('/admin'), 'active' => false],
+            ['name' => 'Main Settings', 'class' => 'main', 'url' => url('/admin'), 'active' => false, 'submenu' => [
+                ['name' => 'Manage Menu', 'url' => url('/admin/menu')],
+            ]],
             ['name' => 'Home Page', 'class' => 'home', 'url' => url('/admin/homepage'), 'active' => false],
             ['name' => 'News', 'class' => 'news', 'url' => url('#'), 'active' => false, 'submenu' => [
                 ['name' => 'Add News', 'url' => url('/admin/news/add')],
@@ -21,7 +24,7 @@ class HomeController extends Controller
             ]],
             ['name' => 'Tutorials', 'class' => 'tutorials', 'url' => url('/admin'), 'active' => false],
             ['name' => 'Tools', 'class' => 'tools', 'url' => url('/admin'), 'active' => false],
-            ['name' => 'Resources', 'class' => 'resources', 'url' => url('/admin'), 'active' => false],
+            ['name' => 'Resources', 'class' => 'resources', 'url' => url('/admin/resources'), 'active' => false],
             ['name' => 'Portfolio', 'class' => 'portfolio', 'url' => url('/admin'), 'active' => false],
             ['name' => 'Contact', 'class' => 'contact', 'url' => url('/admin'), 'active' => false],
             ['name' => 'Logs', 'class' => 'logs', 'url' => '#', 'active' => false, 'submenu' => [

@@ -6,7 +6,7 @@
         <div class="wrapper" style="max-width: 600px;">
             @foreach ($errors->all() as $error)
                 <div class="nNote nFailure hideit">
-                    <p><strong>Błąd: </strong>{{$error}}</p>
+                    <p><strong>Error: </strong>{{$error}}</p>
                 </div>
             @endforeach
         </div>
@@ -19,7 +19,7 @@
         <div class="loginPanel">
 
 
-            <div class="head"><h5 class="iUser">Rejestracja</h5></div>
+            <div class="head"><h5 class="iUser">Register</h5></div>
             <form action="{{ route('register') }}" method="POST" id="valid" class="mainForm">
                 <fieldset>
                     {{ csrf_field() }}
@@ -34,17 +34,17 @@
                     </div>
 
                     <div class="loginRow">
-                        <label for="req2">Hasło:</label>
+                        <label for="req2">Password:</label>
                         <div class="loginInput"><input type="password" name="password" class="validate[required]" id="req2" /></div>
                     </div>
 
                     <div class="loginRow">
-                        <label for="req2">Powtórz hasło:</label>
+                        <label for="req2">Confirm password:</label>
                         <div class="loginInput"><input type="password" name="password_confirmation" class="validate[required]" id="req2" /></div>
                     </div>
 
                     <div class="loginRow">
-                        <div class="submitForm"><input type="submit" value="Zarejestruj" class="greenBtn" /></div>
+                        <div class="submitForm"><input type="submit" value="Register" class="greenBtn" /></div>
                     </div>
                 </fieldset>
             </form>

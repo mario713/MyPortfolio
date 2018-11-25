@@ -33,6 +33,14 @@ Route::get('/messages/outbox', 'Messages\OutboxController@index');
 Route::get('/messages/outbox/delete/{id}', 'Messages\OutboxController@delete');
 Route::get('/messages/trash', 'Messages\TrashController@index');
 
+//==========[Main Routes]==========\\
+Route::get('/resources', 'ResourcesController@index');
+
+Route::get('/contact', 'ContactController@index');
+Route::post('/contact', 'ContactController@form');
+
+Route::get('/news', 'NewsController@index');
+
 //==========[Admin Panel]==========\\
 Route::get('/admin', 'Admin\HomeController@index');
 
@@ -51,6 +59,8 @@ Route::get('/admin/news/delete/{id}', 'Admin\News\NewsManageController@delete');
 Route::get('/admin/news/categories', 'Admin\News\CategoriesController@index');
 Route::get('/admin/news/categories/{action}/{id?}', 'Admin\News\CategoriesController@index');
 Route::post('/admin/news/categories/{action}/{id?}', 'Admin\News\CategoriesController@form');
+
+Route::get('/admin/resources', 'Admin\ResourcesController@index');
 
 //==========[Logs]==========\\
 Route::get('/admin/logs/{type}', 'Admin\LogsController@index');

@@ -142,15 +142,15 @@
     <!-- Header -->
     <div id="header" class="wrapper">
         <div class="logo"><a href="{{ url('/') }}" title=""><img src="{{url('images/logo.png')}}" alt="" /></a></div>
+
         <ul class="middleNav">
-            <li class="iHome"><a href="{{ url('/') }}" title=""><span>Main Page</span></a></li>
-            <li class="iBlog"><a href="#" title=""><span>News</span></a></li>
-            <li class="iDocs"><a href="#" title=""><span>Tutorials</span></a></li>
-            <li class="iTools"><a href="#" title=""><span>Tools</span></a></li>
-            <li class="iFiles"><a href="#" title=""><span>Resources</span></a></li>
-            <li class="iPortfolio"><a href="#" title=""><span>Portfolio</span></a></li>
-            <li class="iContact"><a href="#" title=""><span>Contact</span></a></li>
+            @foreach(config('menu') as $mlink)
+                @if($mlink['active'] == true)
+                <li class="{{$mlink['icon']}}"><a href="{{url($mlink['url'])}}" title=""><span>{{$mlink['name']}}</span></a></li>
+                @endif
+            @endforeach
         </ul>
+
     </div>
 @endsection
 

@@ -11,6 +11,6 @@ class HomeController extends Controller
     {
         $homepage = Homepage::find(1);
 
-        return view('home')->with('content', $homepage);
+        return view('home', ['content' => $homepage]);
     }
 }
