@@ -13,18 +13,18 @@
         </div>
     @endif
 
-    @if (isset($success))
+    @if (Session::has('success'))
         <div class="wrapper" style="max-width: 600px;">
             <div class="nNote nSuccess hideit">
-                <p><strong>Success: </strong>{{$success}}</p>
+                <p><strong>Success: </strong>{{Session::get('success')}}</p>
             </div>
         </div>
     @endif
 
-    <form action="{{url('/admin/resources')}}" method="post" class="mainForm" id="form">
-
+    <form action="{{url('/admin/resources')}}" method="post" class="mainForm" id="form" enctype="multipart/form-data">
+    {{ csrf_field() }}
     <div class="widget first">
-        <div class="head"><h5 class="iCreate">File Upload</h5></div>
+        <div class="head"><h5 class="iUpload">File Upload</h5></div>
 
         <div class="rowElem"><label>Title:</label><div class="formRight"><input type="text" name="upload_title" value=""></div></div>
         <div class="rowElem"><label>Description:</label><div class="formRight"><textarea rows="8" cols="" class="auto" name="upload_description"></textarea></div></div>
