@@ -13,6 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         RolesSeeder::run();
         UsersSeeder::run();
-        MenuSeeder::run();
+        NewsCategorySeeder::run();
     }
 }

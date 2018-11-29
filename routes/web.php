@@ -35,6 +35,8 @@ Route::get('/messages/trash', 'Messages\TrashController@index');
 
 //==========[Main Routes]==========\\
 Route::get('/resources', 'ResourcesController@index');
+Route::get('/resources/download/{id}', 'ResourcesController@download');
+Route::get('/resources/delete/{id}', 'ResourcesController@delete');
 
 Route::get('/contact', 'ContactController@index');
 Route::post('/contact', 'ContactController@form');
@@ -61,6 +63,11 @@ Route::get('/admin/news/categories/{action}/{id?}', 'Admin\News\CategoriesContro
 Route::post('/admin/news/categories/{action}/{id?}', 'Admin\News\CategoriesController@form');
 
 Route::get('/admin/resources', 'Admin\ResourcesController@index');
+Route::post('/admin/resources', 'Admin\ResourcesController@upload');
+
+Route::get('/admin/contact', 'Admin\ContactController@index');
+Route::get('/admin/contact/read/{id}', 'Admin\ContactController@index');
+Route::get('/admin/contact/delete/{id}', 'Admin\ContactController@delete');
 
 //==========[Logs]==========\\
 Route::get('/admin/logs/{type}', 'Admin\LogsController@index');
