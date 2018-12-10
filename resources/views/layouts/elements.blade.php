@@ -144,7 +144,7 @@
         <div class="logo"><a href="{{ url('/') }}" title=""><img src="{{url('images/logo.png')}}" alt="" /></a></div>
 
         <ul class="middleNav">
-            @foreach(config('menu') as $mlink)
+            @foreach(config('menu.top') as $mlink)
                 @if($mlink['active'] == true)
                 <li class="{{$mlink['icon']}}"><a href="{{url($mlink['url'])}}" title=""><span>{{$mlink['name']}}</span></a></li>
                 @endif
@@ -159,7 +159,7 @@
         <!-- Left navigation -->
         <div class="leftNav">
             <ul id="menu">
-                @foreach(config('admin_menu') as $menu_item)
+                @foreach($left_menu as $menu_item)
                     @if($menu_item['active'] == true)
                         <li class="{{$menu_item['class']}}"><a href="{{url($menu_item['url'])}}" title="" @if(isset($menu_item['submenu']))class="exp"@endif><span>{{$menu_item['name']}}</span></a>
                         @if(isset($menu_item['submenu']))

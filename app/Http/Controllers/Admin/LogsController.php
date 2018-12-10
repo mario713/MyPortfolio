@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\HomeController;
 use App\Log;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 
 class LogsController extends Controller
@@ -35,6 +36,6 @@ class LogsController extends Controller
                 $logs = Log::where('type', '=', 'test')->paginate(10);
         }
 
-        return view('admin.logs', ['left_menu' => HomeController::menu()])->with('logs', $logs);
+        return view('admin.logs', ['left_menu' => Config::get('menu.admin')])->with('logs', $logs);
     }
 }

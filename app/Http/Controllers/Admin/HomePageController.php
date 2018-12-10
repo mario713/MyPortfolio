@@ -6,16 +6,12 @@ use App\Homepage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 
 class HomePageController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:admin']);
-    }
-
     public function index()
     {
         $preview = null;
@@ -40,6 +36,6 @@ class HomePageController extends Controller
             }
         }
 
-        return view('admin.homepage', ['left_menu' => HomeController::menu(), 'homepage' => $homepage, 'preview' => $preview]);
+        return view('admin.homepage', ['left_menu' => Config::get('menu.admin'), 'homepage' => $homepage, 'preview' => $preview]);
     }
 }

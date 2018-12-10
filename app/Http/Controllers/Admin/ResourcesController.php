@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\File;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,7 @@ class ResourcesController extends Controller
     public function index()
     {
 
-        return view('admin.resources', ['left_menu' => HomeController::menu()]);
+        return view('admin.resources', ['left_menu' => Config::get('menu.admin')]);
     }
 
     public function upload(UploadFileFormValidation $request)

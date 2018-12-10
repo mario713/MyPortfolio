@@ -17,7 +17,7 @@ class PassChangeController extends Controller
     private function menu()
     {
         return  [
-            ['name' => 'User Info', 'class' => 'dash', 'url' => url('/settings'), 'active' => false],
+            ['name' => 'User Info', 'class' => 'dash', 'url' => url('/settings'), 'active' => true],
             ['name' => 'Pass Change', 'class' => 'login', 'url' => url('/settings/passchange'), 'active' => true],
         ];
     }

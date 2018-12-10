@@ -44,30 +44,32 @@ Route::post('/contact', 'ContactController@form');
 Route::get('/news', 'NewsController@index');
 
 //==========[Admin Panel]==========\\
-Route::get('/admin', 'Admin\HomeController@index');
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::get('/admin', 'Admin\HomeController@index');
 
-Route::get('/admin/homepage', 'Admin\HomePageController@index');
-Route::post('/admin/homepage', 'Admin\HomePageController@index');
+    Route::get('/admin/homepage', 'Admin\HomePageController@index');
+    Route::post('/admin/homepage', 'Admin\HomePageController@index');
 
-Route::get('/admin/news/add', 'Admin\News\NewsController@index');
-Route::post('/admin/news/add', 'Admin\News\NewsController@add_form');
+    Route::get('/admin/news/add', 'Admin\News\NewsController@index');
+    Route::post('/admin/news/add', 'Admin\News\NewsController@add_form');
 
-Route::get('/admin/news/edit/{id}', 'Admin\News\NewsController@edit');
-Route::post('/admin/news/edit/{id}', 'Admin\News\NewsController@edit_form');
+    Route::get('/admin/news/edit/{id}', 'Admin\News\NewsController@edit');
+    Route::post('/admin/news/edit/{id}', 'Admin\News\NewsController@edit_form');
 
-Route::get('/admin/news/manage', 'Admin\News\NewsManageController@index');
-Route::get('/admin/news/delete/{id}', 'Admin\News\NewsManageController@delete');
+    Route::get('/admin/news/manage', 'Admin\News\NewsManageController@index');
+    Route::get('/admin/news/delete/{id}', 'Admin\News\NewsManageController@delete');
 
-Route::get('/admin/news/categories', 'Admin\News\CategoriesController@index');
-Route::get('/admin/news/categories/{action}/{id?}', 'Admin\News\CategoriesController@index');
-Route::post('/admin/news/categories/{action}/{id?}', 'Admin\News\CategoriesController@form');
+    Route::get('/admin/news/categories', 'Admin\News\CategoriesController@index');
+    Route::get('/admin/news/categories/{action}/{id?}', 'Admin\News\CategoriesController@index');
+    Route::post('/admin/news/categories/{action}/{id?}', 'Admin\News\CategoriesController@form');
 
-Route::get('/admin/resources', 'Admin\ResourcesController@index');
-Route::post('/admin/resources', 'Admin\ResourcesController@upload');
+    Route::get('/admin/resources', 'Admin\ResourcesController@index');
+    Route::post('/admin/resources', 'Admin\ResourcesController@upload');
 
-Route::get('/admin/contact', 'Admin\ContactController@index');
-Route::get('/admin/contact/read/{id}', 'Admin\ContactController@index');
-Route::get('/admin/contact/delete/{id}', 'Admin\ContactController@delete');
+    Route::get('/admin/contact', 'Admin\ContactController@index');
+    Route::get('/admin/contact/read/{id}', 'Admin\ContactController@index');
+    Route::get('/admin/contact/delete/{id}', 'Admin\ContactController@delete');
+});
 
 //==========[Logs]==========\\
 Route::get('/admin/logs/{type}', 'Admin\LogsController@index');

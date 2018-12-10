@@ -7,17 +7,13 @@ use App\Http\Requests\NewsCategoryFormValidation;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\HomeController;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
 class CategoriesController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:admin']);
-    }
-
     public function index($action = null, $id = null)
     {
         $cat_edit = null;
@@ -111,7 +107,7 @@ class CategoriesController extends Controller
         if(!isset($cat_order)){$cat_order = new Category; $cat_order->order = 0;}
         $categories = DB::table('categories')->orderBy('order', 'ASC')->get();
 
-        return view('admin.news.categories', ['left_menu' => HomeController::menu(), 'categories' => $categories, 'cat_order' => $cat_order->order+1, 'cat_edit' => $cat_edit]);
+        return view('admin.news.categories', ['left_menu' => Config::get('menu.admin'), 'categories' => $categories, 'cat_order' => $cat_order->order+1, 'cat_edit' => $cat_edit]);
     }
 
     public function form($action = null, $id = null, NewsCategoryFormValidation $request)

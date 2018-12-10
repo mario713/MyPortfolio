@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
@@ -34,7 +35,7 @@ class NewsManageController extends Controller
             ];
         }
 
-        return view('admin.news.manage', ['left_menu' => HomeController::menu(), 'content' => $content]);
+        return view('admin.news.manage', ['left_menu' => Config::get('menu.admin'), 'content' => $content]);
     }
 
     public function delete($id)

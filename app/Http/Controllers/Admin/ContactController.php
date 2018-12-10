@@ -5,15 +5,11 @@ namespace App\Http\Controllers\Admin;
 use App\ContactMessage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Redirect;
 
 class ContactController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:admin']);
-    }
-
     public function index($id = null)
     {
         $read = null;
@@ -35,7 +31,7 @@ class ContactController extends Controller
         }
         $msg = ContactMessage::get();
 
-        return view('admin.contact', ['left_menu' => true, 'msg' => $msg, 'read' => $read]);
+        return view('admin.contact', ['left_menu' => Config::get('menu.admin'), 'msg' => $msg, 'read' => $read]);
     }
 
     public function delete($id)

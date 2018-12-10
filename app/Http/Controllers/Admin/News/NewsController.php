@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Admin\HomeController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 
@@ -24,7 +25,7 @@ class NewsController extends Controller
         $categories = Category::all();
 
 
-        return view('admin.news.add', ['left_menu' => HomeController::menu(), 'categories' => $categories]);
+        return view('admin.news.add', ['left_menu' => Config::get('menu.admin'), 'categories' => $categories]);
     }
 
     public function add_form(NewsAddFormValidation $request)
@@ -49,7 +50,7 @@ class NewsController extends Controller
 
         $categories = Category::all();
 
-        return view('admin.news.edit', ['left_menu' => HomeController::menu(), 'categories' => $categories, 'edit_news' => $news]);
+        return view('admin.news.edit', ['left_menu' => Config::get('menu.admin'), 'categories' => $categories, 'edit_news' => $news]);
     }
 
     public function edit_form($id, NewsAddFormValidation $request)

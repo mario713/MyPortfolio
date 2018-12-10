@@ -6,26 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserInfoFormValidation;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Input;
 
 class UserInfoController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    private function menu()
-    {
-        return  [
-            ['name' => 'User Info', 'class' => 'dash', 'url' => url('/settings'), 'active' => true],
-            ['name' => 'Pass Change', 'class' => 'login', 'url' => url('/settings/passchange'), 'active' => false],
-        ];
-    }
-
     public function index()
     {
-        return view('settings.userinfo', ['left_menu' => $this->menu()]);
+        return view('settings.userinfo', ['left_menu' => Config::get('menu.settings')]);
     }
 
     public function form(UserInfoFormValidation $request)
@@ -51,6 +39,6 @@ class UserInfoController extends Controller
         }
         $user->save();
 
-        return view('settings.userinfo', ['left_menu' => $this->menu()])->with('success', 'Your info has been updated.');
+        return view('settings.userinfo', ['left_menu' => Config::get('menu.settings')])->with('success', 'Your info has been updated.');
     }
 }
