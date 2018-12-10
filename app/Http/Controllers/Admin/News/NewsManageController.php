@@ -7,17 +7,11 @@ use App\Http\Controllers\Admin\HomeController;
 use App\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class NewsManageController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:admin']);
-    }
-
     public function index()
     {
         $content = null;
@@ -51,7 +45,7 @@ class NewsManageController extends Controller
             }
             else
             {
-                return Redirect::back()->withErrors('Cant find news with this ID!');
+                return redirect(url('/admin/news/manage'))->with('error', 'Cant find news with this ID!');
             }
         }
     }

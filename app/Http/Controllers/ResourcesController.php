@@ -14,13 +14,6 @@ class ResourcesController extends Controller
 {
     use HasRoles;
 
-    private function menu()
-    {
-        return [
-            ['name' => 'Other', 'class' => 'download2', 'url' => url('/admin'), 'active' => false],
-        ];
-    }
-
     public function index()
     {
         $files = File::all();
@@ -36,7 +29,7 @@ class ResourcesController extends Controller
         }
         else
         {
-            return Redirect::back()->withErrors('Cant find file with that ID.');
+            return redirect(url('/resources'))->with('error', 'Cant find file with that ID.');
         }
     }
 
@@ -50,11 +43,11 @@ class ResourcesController extends Controller
                 Storage::delete($file->path);
                 $file->delete();
 
-                return Redirect::back()->with('success', 'File deleted.');
+                return redirect(url('/resources'))->with('success', 'File deleted.');
             }
             else
             {
-                return Redirect::back()->withErrors('Cant find file with that ID!');
+                return redirect(url('/resources'))->with('error', 'Cant find file with that ID!');
             }
         }
         else

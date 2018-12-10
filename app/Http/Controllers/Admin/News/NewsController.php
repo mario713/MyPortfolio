@@ -15,11 +15,6 @@ use Illuminate\Support\Facades\Redirect;
 
 class NewsController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware(['auth', 'role:admin']);
-    }
-
     public function index()
     {
         $categories = Category::all();
@@ -71,7 +66,7 @@ class NewsController extends Controller
             }
             else
             {
-                return Redirect::back()->withErrors('Cant find news with that ID!');
+                return redirect(url('/admin/news/manage'))->with('error', 'Cant find news with that ID!');
             }
         }
         return redirect(url('/admin/news/manage'));

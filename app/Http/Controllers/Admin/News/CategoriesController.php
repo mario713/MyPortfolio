@@ -30,7 +30,7 @@ class CategoriesController extends Controller
                     }
                     else
                     {
-                        return Redirect::back()->withErrors('You cant edit category that doesnt exists.');
+                        return redirect(url('/admin/news/categories'))->with('error', 'You cant edit category that doesnt exists.');
                     }
                 }
                 break;
@@ -47,12 +47,12 @@ class CategoriesController extends Controller
                     }
                     else
                     {
-                        return Redirect::back()->withErrors('Category you want to delete doesnt exists.');
+                        return redirect(url('/admin/news/categories'))->with('error', 'Category you want to delete doesnt exists.');
                     }
                 }
                 else
                 {
-                    return Redirect::back()->withErrors('Category ID is empty!');
+                    return redirect(url('/admin/news/categories'))->with('error', 'Category ID is empty!');
                 }
                 break;
 
@@ -69,12 +69,12 @@ class CategoriesController extends Controller
                     }
                     else
                     {
-                        return Redirect::back()->withErrors('Category you want to move down doesnt exists.');
+                        return redirect(url('/admin/news/categories'))->with('error', 'Category you want to move down doesnt exists.');
                     }
                 }
                 else
                 {
-                    return Redirect::back()->withErrors('Category ID is empty!');
+                    return redirect(url('/admin/news/categories'))->with('error', 'Category ID is empty!');
                 }
                 break;
 
@@ -94,12 +94,12 @@ class CategoriesController extends Controller
                     }
                     else
                     {
-                        return Redirect::back()->withErrors('Category you want to move up doesnt exists.');
+                        return redirect(url('/admin/news/categories'))->with('error', 'Category you want to move up doesnt exists.');
                     }
                 }
                 else
                 {
-                    return Redirect::back()->withErrors('Category ID is empty!');
+                    return redirect(url('/admin/news/categories'))->with('error', 'Category ID is empty!');
                 }
                 break;
         }
@@ -139,12 +139,12 @@ class CategoriesController extends Controller
                     }
                     else
                     {
-                        return Redirect::back()->withErrors('Cant find category to edit!');
+                        return redirect(url('/admin/news/categories'))->with('error', 'Cant find category to edit!');
                     }
                 }
                 else
                 {
-                    return Redirect::back()->withErrors('Category ID is empty! Cant edit that!');
+                    return redirect(url('/admin/news/categories'))->with('error', 'Category ID is empty! Cant edit that!');
                 }
                 break;
         }

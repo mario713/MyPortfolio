@@ -13,6 +13,14 @@
         </div>
     @endif
 
+    @if (Session::has('error'))
+        <div class="wrapper" style="max-width: 600px;">
+            <div class="nNote nFailure hideit">
+                <p><strong>Success: </strong>{{Session::get('error')}}</p>
+            </div>
+        </div>
+    @endif
+
     @if (Session::has('success'))
         <div class="wrapper" style="max-width: 600px;">
             <div class="nNote nSuccess hideit">

@@ -29,6 +29,6 @@ class ResourcesController extends Controller
         $file->path = $path;
         $file->save();
 
-        return Redirect::back()->with('success', 'File has been uploaded.');
+        return redirect(url('/admin/resources'))->with('success', 'File has been uploaded.');
     }
 }

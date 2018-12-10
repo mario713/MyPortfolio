@@ -18,7 +18,7 @@ class ContactController extends Controller
             $read = ContactMessage::find($id);
             if(!isset($read))
             {
-                return Redirect::back()->withErrors('There is no contact message with this ID!');
+                return redirect(url('/admin/contact'))->with('error', 'There is no contact message with this ID!');
             }
             else
             {
@@ -40,11 +40,11 @@ class ContactController extends Controller
         if(isset($msg))
         {
             $msg->delete();
-            return Redirect::back()->with('success', 'Contact message with given ID has been deleted.');
+            return redirect(url('/admin/contact'))->with('success', 'Contact message with given ID has been deleted.');
         }
         else
         {
-            return Redirect::back()->withErrors('There is no contact message with this ID!');
+            return redirect(url('/admin/contact'))->with('error', 'There is no contact message with this ID!');
         }
 
     }
