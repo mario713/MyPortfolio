@@ -102,7 +102,7 @@
                             @endhasrole
 
                             <li><a href="{{url('/profile')}}" title=""><img src="{{url('images/icons/topnav/profile.png')}}" alt="" /><span>Profile</span></a></li>
-                            <li class="dd"><a title=""><img src="{{url('images/icons/topnav/messages.png')}}" alt="" /><span>Messages</span><!-- <strong class="numberTop">8</strong> --></a>
+                            <li class="dd"><a title=""><img src="{{url('images/icons/topnav/messages.png')}}" alt="" /><span>Messages</span>@if(Auth::User()->UnreadMessagesCount > 0)<strong class="numberTop">{{Auth::User()->UnreadMessagesCount}}</strong>@endif</a>
                                 <ul class="menu_body">
                                     <li><a href="{{ url('/messages/new') }}" title="" class="sAdd">New Message</a></li>
                                     <li><a href="{{ url('/messages/inbox') }}" title="" class="sInbox">Inbox</a></li>
