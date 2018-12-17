@@ -34,6 +34,11 @@ class User extends Authenticatable
         return $this->hasMany('App\Message');
     }
 
+    public function getUnreadMessagesCountAttribute()
+    {
+        return $this->Messages()->where('type', '=', 'inbox')->where('read', '=', false)->count();
+    }
+
     public function Logs()
     {
         return $this->hasMany('App\Log');
