@@ -30,7 +30,7 @@
             @foreach($messages as $message)
             <tr class="gradeA">
                 <td class="center"><a href="#">{{ $message->to }}</a></td>
-                <td class="center"><a href="#">{{ $message->title }}</a></td>
+                <td class="center"><a href="{{url('/messages/outbox/read/'.$message->id)}}">{{ $message->title }}</a></td>
                 <td class="center">{{ $message->date }}</td>
                 <td class="center">
                     <a href="{{url('/messages/outbox/delete/'.$message->id)}}"><img src="{{ url('images/icons/color/cross.png') }}" class="topDir" value="top direction" original-title="Delete"/></a>

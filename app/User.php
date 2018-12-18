@@ -36,7 +36,7 @@ class User extends Authenticatable
 
     public function getUnreadMessagesCountAttribute()
     {
-        return $this->Messages()->where('type', '=', 'inbox')->where('read', '=', false)->count();
+        return $this->Messages()->where('type', '=', 'inbox')->where('read', '=', null)->count();
     }
 
     public function Logs()

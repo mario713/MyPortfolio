@@ -30,7 +30,7 @@
             @foreach($messages as $message)
             <tr class="gradeA">
                 <td class="center"><a href="#">{{ $message->from }}</a></td>
-                <td class="center"><a href="#">{{ $message->title }}</a></td>
+                <td class="center"><a href="{{url('/messages/inbox/read/'.$message->id)}}">{{ $message->title }}</a></td>
                 <td class="center">{{ $message->date }}</td>
                 <td class="center">
 

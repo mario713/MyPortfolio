@@ -22,7 +22,7 @@ class CreateMessagesTable extends Migration
             $table->string('title', 64);
             $table->text('content');
             $table->timestamp('date');
-            $table->boolean('read')->default(false);
+            $table->timestamp('read')->nullable(true)->default(null);
             $table->timestamp('delete_at')->nullable(true);
         });
 
