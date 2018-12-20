@@ -13,6 +13,14 @@
         </div>
     @endif
 
+    @if (Session::has('error'))
+        <div class="wrapper" style="max-width: 600px;">
+            <div class="nNote nFailure hideit">
+                <p><strong>Success: </strong>{{Session::get('error')}}</p>
+            </div>
+        </div>
+    @endif
+
     <!-- Dynamic table -->
     <div class="table">
         <div class="head"><h5 class="iFrames">Messages</h5></div>

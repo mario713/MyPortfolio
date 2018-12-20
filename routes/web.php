@@ -25,8 +25,7 @@ Route::post('/settings/passchange', 'Settings\PassChangeController@form');
 Route::get('/profile/{id?}', 'ProfileController@index');
 
 //==========[Messages]==========\\
-Route::get('/messages/inbox/read/{id}', 'Messages\ReadController@inbox');
-Route::get('/messages/outbox/read/{id}', 'Messages\ReadController@outbox');
+Route::get('/messages/{type}/read/{id}', 'Messages\ReadController@index');
 Route::get('/messages/new/{username?}', 'Messages\NewController@index');
 Route::post('/messages/new/{username?}', 'Messages\NewController@form');
 Route::get('/messages/inbox', 'Messages\InboxController@index');

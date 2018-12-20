@@ -15,43 +15,29 @@ class ReadController extends Controller
         $this->middleware('auth');
     }
 
-    public function inbox($id)
+    public function index($type, $id)
     {
-
-        $message = Message::where('user_id', '=', Auth::User()->id)->where('type', '=', 'inbox')->where('id', '=', $id)->first();
-        if(isset($message))
+        if($type == 'inbox' || $type == 'outbox')
         {
-            if($message->read == 0)
+            $message = Message::where('user_id', '=', Auth::User()->id)->where('type', '=', $type)->where('id', '=', $id)->first();
+            if(isset($message))
             {
-                $message->read = Carbon::Now();
-                $message->save();
+                if($message->read == 0)
+                {
+                    $message->read = Carbon::now();
+                    $message->save();
+                }
+                return view('messages.read', ['message' => $message]);
             }
-            return view('messages.read', ['message' => $message]);
+            else
+            {
+                return redirect(url('/messages/'.$type))->with('error', 'Cant find any message with this ID!');
+            }
         }
         else
         {
             return redirect(url('/messages/inbox'));
         }
-
     }
 
-    public function outbox($id)
-    {
-
-        $message = Message::where('user_id', '=', Auth::User()->id)->where('type', '=', 'outbox')->where('id', '=', $id)->first();
-        if(isset($message))
-        {
-            if($message->read == 0)
-            {
-                $message->read = Carbon::Now();
-                $message->save();
-            }
-            return view('messages.read', ['message' => $message]);
-        }
-        else
-        {
-            return redirect(url('/messages/outbox'));
-        }
-
-    }
 }
